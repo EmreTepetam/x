@@ -1,4 +1,8 @@
 {
     "Driver Yükleyici": "Driver Installer",
-    "Yüklemeye Başla": "Start Installation"
+    "Kurulum Yöneticisi": "Installation Manager",
+    "Yüklemeye Başla": "Start Installation",
+    "Tümünü Seç": "Select All",
+    "Seçimleri İptal Et": "Deselect All",
+    "Yükle": "Install"
 }

@@ -1,11 +1,10 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel, QHBoxLayout
 from PyQt6.QtGui import QIcon, QPixmap
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QPropertyAnimation, QRect, QEasingCurve
 import qtawesome as qta
 from backend.settings import Settings
 from gui.install_window import InstallWindow
-
 
 class MainWindow(QMainWindow):
     def __init__(self, settings, parent=None):
@@ -48,14 +47,14 @@ class MainWindow(QMainWindow):
         # Theme Toggle Button
         self.themeButton = QPushButton(self)
         self.themeButton.setIcon(qta.icon('fa5s.moon'))
-        self.themeButton.setFixedSize(30, 30)
+        self.themeButton.setFixedSize(24, 24)
         self.themeButton.setStyleSheet("border: none;")
         self.themeButton.clicked.connect(self.changeTheme)
 
         # Language Toggle Button
         self.languageButton = QPushButton(self)
         self.languageButton.setIcon(QIcon("resources/tr_flag.png"))
-        self.languageButton.setFixedSize(30, 30)
+        self.languageButton.setFixedSize(24, 24)
         self.languageButton.setStyleSheet("border: none;")
         self.languageButton.clicked.connect(self.changeLanguage)
 
@@ -80,8 +79,18 @@ class MainWindow(QMainWindow):
 
     def openInstallWindow(self):
         self.installWindow = InstallWindow(self.settings)
+        self.installWindow.setGeometry(self.geometry())
         self.installWindow.show()
-        self.close()  # Mevcut pencereyi kapat
+
+        # Büyütme animasyonu
+        self.animation = QPropertyAnimation(self.installWindow, b"geometry")
+        self.animation.setDuration(500)
+        self.animation.setEasingCurve(QEasingCurve.Type.InOutQuad)
+        self.animation.setStartValue(QRect(self.geometry().x() + self.width() // 2, self.geometry().y() + self.height() // 2, 0, 0))
+        self.animation.setEndValue(self.geometry())
+        self.animation.start()
+
+        self.hide()
 
     def changeTheme(self):
         if self.settings.current_theme == "light":

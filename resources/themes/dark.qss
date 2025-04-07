@@ -1,44 +1,72 @@
 QWidget {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-QPushButton {
-    font-size: 18px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: #2C3E50;
+    background-color: #2E2E2E;
     color: #FFFFFF;
 }
 
-QPushButton:hover {
-    background-color: #5D8A99;
-}
-QMainWindow {
-    background-color: #34495E;
-}
-QLabel {
-    color: #FFFFFF;
-}
-QWidget {
-    background-color: #ffffff;
-    color: #000000;
-}
-
 QPushButton {
+    background-color: #3B4C6B;
+    color: white;
     font-size: 18px;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: #87CEEB;
-    color: #1E3A5F;
 }
 
 QPushButton:hover {
-    background-color: #A2C2E6;
+    background-color: #5D7AA3;
 }
-QMainWindow {
-    background-color: #FFFFFF;
+
+QTreeWidget {
+    border: 1px solid #1E3A5F;
+    border-radius: 5px;
+    background-color: #3B3B3B;
 }
-QLabel {
-    color: #1E3A5F;
+
+QTreeWidget::item {
+    padding: 5px;
+    color: #FFFFFF;
+}
+
+QTreeWidget::item:selected {
+    background-color: #5D7AA3;
+    color: white;
+}
+
+QScrollBar:vertical {
+    background: #3B3B3B;
+    width: 16px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #5D7AA3;
+    min-height: 20px;
+    border-radius: 5px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: none;
+    border: none;
+}
+
+QTextEdit {
+    border: 1px solid #1E3A5F;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 100px;
+    padding: 10px;
+    background-color: #3B3B3B;
+    color: #FFFFFF;
+}
+
+QProgressBar {
+    border: 2px solid #1E3A5F;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+QProgressBar::chunk {
+    background-color: #5D7AA3;
+    width: 20px;
 }

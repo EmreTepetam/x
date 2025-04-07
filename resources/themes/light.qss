@@ -1,10 +1,10 @@
 QWidget {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #E0F7FA;  /* Açık mavi (gökyüzü mavisi) */
+    color: #01579B;  /* Koyu mavi */
 }
 
 QPushButton {
-    background-color: #457B9D;
+    background-color: #4FC3F7;  /* Orta mavi */
     color: white;
     font-size: 18px;
     padding: 10px 20px;
@@ -12,5 +12,39 @@ QPushButton {
 }
 
 QPushButton:hover {
-    background-color: #1D3557;
+    background-color: #0288D1;  /* Daha koyu mavi */
+}
+
+QTreeWidget {
+    border: 1px solid #0288D1;
+    border-radius: 5px;
+    background-color: #E1F5FE;
+}
+
+QTreeWidget::item {
+    padding: 5px;
+    color: #01579B;
+}
+
+QTreeWidget::item:selected {
+    background-color: #4FC3F7;
+    color: white;
+}
+
+QScrollBar:vertical {
+    background: #E1F5FE;
+    width: 16px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #4FC3F7;
+    min-height: 20px;
+    border-radius: 5px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: none;
+    border: none;
 }
